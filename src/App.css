@@ -1,4 +1,1 @@
-.TaskList__title {
-  text-align: center;
-  font-size: xx-large;
-}
+@import "tailwindcss";

@@ -24,7 +24,7 @@ export default function TaskAdditionSection(props: TaskAdditionSectionProps) {
     }
 
     return <div>
-        {!showForm && <Button onClick={handleClick}>Add task</Button>}
+        {!showForm && <div className=""><Button onClick={handleClick}>Add task</Button></div>}
         {showForm && <TaskForm task={null}
                                onAddTask={handleAddTask}
                                onCancel={handleCancel}

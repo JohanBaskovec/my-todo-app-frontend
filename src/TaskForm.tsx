@@ -21,7 +21,7 @@ export default function TaskForm(props: TaskFormProps) {
     ));
 
     function handleSubmit() {
-        props.onAddTask({name: form.getFieldValue("name"), id: undefined});
+        props.onAddTask({name: form.getFieldValue("name"), id: undefined, completed: false});
     }
 
     function handleCancel(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {

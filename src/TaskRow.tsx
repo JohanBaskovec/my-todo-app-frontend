@@ -13,9 +13,12 @@ export default function TaskRow(props: TaskRowProps) {
 
     const putTaskQuery = useMutation({
         mutationFn: (newTask) => {
+            if (newTask.id == null) {
+                throw new Error("newTask has no id. This should not be possible.");
+            }
             return axios.put(`http://localhost:8081/task/${newTask.id}`, newTask)
         },
-        onMutate: async (newTask: Task) => {
+        onMutate: (newTask: Task) => {
             const previousTasks: Task[] | undefined = queryClient.getQueryData(tasksListOptions.queryKey);
 
             if (previousTasks) {

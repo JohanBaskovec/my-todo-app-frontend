@@ -9,7 +9,7 @@ export interface InputProps {
 export default function Input(props: InputProps) {
     function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
         const value = e.currentTarget.value;
-        let status: FormFieldStatus = "touched";
+        const status: FormFieldStatus = "touched";
         props.setForm(props.form.withField(props.form, props.name, {status, value}));
     }
 

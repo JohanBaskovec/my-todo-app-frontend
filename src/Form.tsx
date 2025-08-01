@@ -13,25 +13,21 @@
     }
 
     export class Form {
-        private readonly fieldValues: { [key: string]: string };
-        private readonly fieldValidationRules: { [key: string]: FormFieldValiationRule };
-        private readonly fieldStatuses: { [key: string]: FormFieldStatus };
-        private readonly fieldErrors: { [key: string]: string };
+        private readonly fieldValues: Record<string, string>;
+        private readonly fieldValidationRules: Record<string, FormFieldValiationRule>;
+        private readonly fieldStatuses: Record<string, FormFieldStatus>;
+        private readonly fieldErrors: Record<string, string>;
 
         constructor(
-            fieldValues: { [key: string]: string },
-            fieldValidationRules: { [key: string]: FormFieldValiationRule } = {},
-            fieldStatuses: { [key: string]: FormFieldStatus } = {},
-            fieldErrors: { [key: string]: string } = {},
+            fieldValues: Record<string, string>,
+            fieldValidationRules: Record<string, FormFieldValiationRule> = {},
+            fieldStatuses: Record<string, FormFieldStatus> = {},
+            fieldErrors: Record<string, string> = {},
         ) {
             this.fieldValues = fieldValues;
             for (const name in fieldValues) {
-                if (fieldValidationRules[name] == null) {
-                    fieldValidationRules[name] = {};
-                }
-                if (fieldStatuses[name] == null) {
-                    fieldStatuses[name] = "untouched";
-                }
+                fieldValidationRules[name] ??= {};
+                fieldStatuses[name] ??= "untouched";
             }
             this.fieldStatuses = fieldStatuses;
             this.fieldValidationRules = fieldValidationRules;

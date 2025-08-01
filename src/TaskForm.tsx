@@ -79,7 +79,7 @@ export default function TaskForm(props: TaskFormProps) {
         taskPostQuery.mutate({name: form.getFieldValue("name"), id: undefined, done: false});
     }
 
-    function handleCancel(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    function handleCancel(e: React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
         props.onCancel();
     }

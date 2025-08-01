@@ -4,7 +4,7 @@ import type Task from "./Task.ts";
 
 function fetchTasks(): Promise<Task[]> {
     return axios.get("http://localhost:8081/task").then((response) => {
-        return response.data;
+        return response.data as Task[];
     });
 }
 

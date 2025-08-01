@@ -2,7 +2,7 @@ import type {ReactNode} from "react";
 
 interface ButtonProps {
     children: ReactNode;
-    onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
     disabled?: boolean;
 }
 

@@ -10,9 +10,6 @@ export default function Input(props: InputProps) {
     function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
         const value = e.currentTarget.value;
         let status: FormFieldStatus = "touched";
-        if (props.form.isFieldRequired(props.name) && value.length == 0) {
-            status = "error";
-        }
         props.setForm(props.form.withField(props.form, props.name, {status, value}));
     }
 

@@ -1,6 +1,6 @@
 export default interface Task {
     id: number | undefined;
-    completed: boolean;
+    done: boolean;
     name: string;
 }
 

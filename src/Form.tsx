@@ -40,9 +40,12 @@
         isValid() {
             for (const key in this.fieldValues) {
                 const fieldStatus = this.fieldStatuses[key];
+                const fieldValue = this.fieldValues[key];
                 const fieldValidationRules = this.fieldValidationRules[key];
-                if (fieldStatus === "untouched" && fieldValidationRules.required) {
-                    return false;
+                if (fieldValidationRules.required) {
+                    if (fieldStatus == "untouched" || fieldValue.length == 0) {
+                        return false;
+                    }
                 }
             }
             return true;

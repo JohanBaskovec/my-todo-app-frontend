@@ -37,6 +37,14 @@ export default tseslint.config([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    overrides: [
+      {
+        files: ["**/*.test.ts", "**/*.spec.ts"],
+        env: { vitest: true },
+        plugins: ["vitest"],
+        extends: ["plugin:vitest/recommended"],
+      },
+    ],
   },
   prettier,
 ]);
